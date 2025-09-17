@@ -17,10 +17,28 @@ const form = useForm({
 const submit = function() {
     if (form.id) {
         // do update
-        form.post('/students/' + form.id);
+        form.post('/students/' + form.id, {
+            onSuccess: () => {
+                window.location.reload();
+            },
+            onError: (error) => {
+                Object.entries(error).map((err) => {
+                    console.log(err[1])
+                });
+            }
+        });
     } else {
         // do create
-        form.post('/students');
+        form.post('/students', {
+            onSuccess: () => {
+                window.location.reload();
+            },
+            onError: (error) => {
+                Object.entries(error).map((err) => {
+                    console.log(err[1])
+                });
+            }
+        });
     }
 }
 

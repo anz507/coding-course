@@ -37,7 +37,7 @@ class StudentController extends Controller
         $student->save();
 
         if ($request->hasFile('student_picture')) {
-            $filename = $student->slug . '_' . time() . '_main.' . $request->file('student_picture')->extension();
+            $filename = $student->id . '_' . time() . '_main.' . $request->file('student_picture')->extension();
             $imgPath = $request->file('student_picture')->storeAs('uploads/students/' . $student->id, $filename, 'public');
 
             $img = \App\Models\Media::create([
@@ -79,7 +79,7 @@ class StudentController extends Controller
                 $oldImage->delete();
             }
 
-            $filename = $student->slug . '_' . time() . '_main.' . $request->file('student_picture')->extension();
+            $filename = $student->id . '_' . time() . '_main.' . $request->file('student_picture')->extension();
             $imgPath = $request->file('student_picture')->storeAs('uploads/students/' . $student->id, $filename, 'public');
 
             $img = \App\Models\Media::create([

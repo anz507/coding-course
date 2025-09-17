@@ -70,26 +70,32 @@ const mainImageRead = function(event) {
                     <div class="flex flex-col my-2">
                         <label>Nama</label>
                         <input class="border px-2 py-1 bg-white rounded-sm" type="text" v-model="form.nama">
+                        <p class="text-red-500 text-sm" v-if="form.errors.nama">{{ form.errors.nama }}</p>
                     </div>
                     <div class="flex flex-col my-2">
                         <label>Alamat</label>
                         <input class="border px-2 py-1 bg-white rounded-sm" type="text" v-model="form.alamat">
+                        <p class="text-red-500 text-sm" v-if="form.errors.alamat">{{ form.errors.alamat }}</p>
                     </div>
                     <div class="flex flex-col my-2">
                         <label>Kelas ID</label>
                         <input class="border px-2 py-1 bg-white rounded-sm" type="text" v-model="form.kelas_id">
+                        <p class="text-red-500 text-sm" v-if="form.errors.kelas_id">{{ form.errors.kelas_id }}</p>
                     </div>
                     <div class="flex flex-col my-2">
                         <label>Jenis Kelamin</label>
                         <input class="border px-2 py-1 bg-white rounded-sm" type="text" v-model="form.jenis_kelamin">
+                        <p class="text-red-500 text-sm" v-if="form.errors.jenis_kelamin">{{ form.errors.jenis_kelamin }}</p>
                     </div>
                     <div class="flex flex-col my-2">
                         <label>Nama Orang Tua</label>
                         <input class="border px-2 py-1 bg-white rounded-sm" type="text" v-model="form.nama_orang_tua">
+                        <p class="text-red-500 text-sm" v-if="form.errors.nama_orang_tua">{{ form.errors.nama_orang_tua }}</p>
                     </div>
                     <div class="flex flex-col my-2">
                         <label>Upload Foto</label>
                         <input type="file" @change="mainImageRead" accept="image/*" class="border px-2 py-1 bg-white rounded-sm">
+                        <p class="text-red-500 text-sm" v-if="form.errors.student_picture">{{ form.errors.student_picture }}</p>
                     </div>
                     <button type="submit" class="border bg-green-500 text-white px-2 py-1 rounded">Simpan</button>
                 </form>

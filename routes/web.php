@@ -7,10 +7,10 @@ Route::get('/', function () {
     return Inertia::render('Welcome');
 })->name('home');
 
-Route::get('/students', [App\Http\Controllers\StudentController::class, 'index']);
-Route::post('/students', [App\Http\Controllers\StudentController::class, 'store']);
-Route::post('/students/{id}', [App\Http\Controllers\StudentController::class, 'update']);
-Route::delete('/students/{id}', [App\Http\Controllers\StudentController::class, 'destroy']);
+Route::get('/students', [App\Http\Controllers\StudentController::class, 'index']); // read
+Route::post('/students', [App\Http\Controllers\StudentController::class, 'store']); // create
+Route::post('/students/{id}', [App\Http\Controllers\StudentController::class, 'update']); // update
+Route::delete('/students/{id}', [App\Http\Controllers\StudentController::class, 'destroy']); // delete
 
 Route::get('dashboard', function () {
     return Inertia::render('Dashboard');

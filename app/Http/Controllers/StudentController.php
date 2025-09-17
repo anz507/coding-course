@@ -10,10 +10,24 @@ class StudentController extends Controller
 {
     public function index()
     {
+        $kelas = [
+            [
+                'id' => 1,
+                'nama_kelas' => '1A',
+                'lantai' => 1
+            ],
+            [
+                'id' => 2,
+                'nama_kelas' => '1B',
+                'lantai' => 1
+            ],
+        ];
+
         $students = \App\Models\Student::with('media')->get();
 
         return Inertia::render('Students/Index', [
-            'students' => $students
+            'students' => $students,
+            'opsi_kelas' => $kelas
         ]);
     }
 

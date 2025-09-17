@@ -3,6 +3,7 @@ import { useForm, usePage } from '@inertiajs/vue3';
 
 const pageData = usePage();
 const students = pageData.props.students;
+const opsi_kelas = pageData.props.opsi_kelas;
 
 const form = useForm({
     id: null,
@@ -79,12 +80,23 @@ const mainImageRead = function(event) {
                     </div>
                     <div class="flex flex-col my-2">
                         <label>Kelas ID</label>
-                        <input class="border px-2 py-1 bg-white rounded-sm" type="text" v-model="form.kelas_id">
+                        <!-- <input class="border px-2 py-1 bg-white rounded-sm" type="text" v-model="form.kelas_id"> -->
+                        <select v-model="form.kelas_id" class="border px-2 py-1 bg-white rounded-sm">
+                            <option value="">Pilih dari list</option>
+                            <template v-for="kelas in opsi_kelas">
+                                <option :value="kelas.id">{{ kelas.nama_kelas }}</option>
+                            </template>
+                        </select>
                         <p class="text-red-500 text-sm" v-if="form.errors.kelas_id">{{ form.errors.kelas_id }}</p>
                     </div>
                     <div class="flex flex-col my-2">
                         <label>Jenis Kelamin</label>
-                        <input class="border px-2 py-1 bg-white rounded-sm" type="text" v-model="form.jenis_kelamin">
+                        <!-- <input class="border px-2 py-1 bg-white rounded-sm" type="text" v-model="form.jenis_kelamin"> -->
+                        <select v-model="form.jenis_kelamin" class="border px-2 py-1 bg-white rounded-sm">
+                            <option value="">Pilih dari list</option>
+                            <option value="pria">Pria</option>
+                            <option value="wanita">Wanita</option>
+                        </select>
                         <p class="text-red-500 text-sm" v-if="form.errors.jenis_kelamin">{{ form.errors.jenis_kelamin }}</p>
                     </div>
                     <div class="flex flex-col my-2">
